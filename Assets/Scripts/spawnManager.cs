@@ -11,7 +11,7 @@ public class spawnManager : MonoBehaviour
     
 
     private void Start() {
-        InvokeRepeating("spawnItem", 5, 2);
+        InvokeRepeating("spawnItem", 1, 2);
     }
 
     private void Update() {
