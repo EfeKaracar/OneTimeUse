@@ -12,6 +12,7 @@ public class timeManager : MonoBehaviour
     public float tempSeconds;
     public float tempMinutes;
     public float gameTime;
+
     // Update is called once per frame
     void Start() {
         InvokeRepeating("runTime", 0, 1);
@@ -21,18 +22,19 @@ public class timeManager : MonoBehaviour
         gameTime++;
         tempSeconds++;
         secondsText.text = tempSeconds.ToString();
-        if(gameTime == 60) {
+        if(tempSeconds == 60) {
             tempMinutes++;
-            tempSeconds = 0;
             minutesText.text = tempMinutes.ToString();
+            tempSeconds = 0;
+        }
+        if(gameTime == gameBalancing.shiftDurationInMinutes * 60) { 
+            
         }
     }
-
     public void pauseGame() { 
         if(Time.timeScale == 1) {
             Time.timeScale = 0;
-        }
-        else { 
+        } else { 
             Time.timeScale = 1;
         }
     }

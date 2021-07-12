@@ -13,4 +13,9 @@ public class itemBehaviours : MonoBehaviour
         Vector3 newWorldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         transform.position = newWorldPosition;
     }
+    private void OnMouseUp() {
+        
+    }
+
+    void findClosestBin() { }
 }

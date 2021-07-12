@@ -5,4 +5,5 @@ using UnityEngine;
 public static class gameBalancing
 {
     public static float itemMoveSpeed = 2f;
+    public static float shiftDurationInMinutes = 2;
 }
