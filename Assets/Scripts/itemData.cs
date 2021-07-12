@@ -7,5 +7,6 @@ public class itemData : MonoBehaviour
     public string itemName;
     public int itemValue;
     public bool onRail;
+    public bool beingDragged = false;
 
 }

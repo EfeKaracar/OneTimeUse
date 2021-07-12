@@ -12,10 +12,17 @@ public class itemBehaviours : MonoBehaviour
         Vector3 screenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraZdistance);
         Vector3 newWorldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         transform.position = newWorldPosition;
+        GetComponent<itemData>().beingDragged = true;
     }
     private void OnMouseUp() {
-        
+        GetComponent<itemData>().beingDragged = false;
     }
 
-    void findClosestBin() { }
+    private void OnCollisionEnter(Collision collision) {
+        if(collision.transform.tag == "Bin") { 
+            if(GetComponent<itemData>().beingDragged == false) {
+                Destroy(this.gameObject);
+            }
+        }
+    }
 }
