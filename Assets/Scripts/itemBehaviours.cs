@@ -5,7 +5,12 @@ using UnityEngine;
 public class itemBehaviours : MonoBehaviour
 {
     float cameraZdistance;
+    itemData _idata;
+    GUIManager guim;
+
     private void Start() {
+        guim = FindObjectOfType<GUIManager>();
+        _idata = GetComponent<itemData>();
         cameraZdistance = Camera.main.WorldToScreenPoint(transform.position).z; // z axis of the game object
     }
     private void OnMouseDrag() {
@@ -19,8 +24,31 @@ public class itemBehaviours : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if(collision.transform.tag == "Bin") { 
-            if(GetComponent<itemData>().beingDragged == false) {
+        if(collision.transform.tag == "Bin") {
+            if (GetComponent<itemData>().beingDragged == false) {
+                float _iValue = GetComponent<itemData>().itemValue;
+                float materialToEarn = _iValue / 10;
+                materialToEarn = Mathf.Clamp(materialToEarn, 0, Mathf.Infinity);
+                bool pass = false;
+                if (collision.transform.name == "RecyclePlastics") {
+                    if (_idata.bin == itemData.bins.recycle) { playerStats.changePlayerPlasticsRecycle(materialToEarn); pass = true; }
+                }
+                if (collision.transform.name == "SinglePlastics") {
+                    if (_idata.bin == itemData.bins.single) { playerStats.changePlayerPlasticsSingle(materialToEarn); pass = true; }
+                }
+                if (collision.transform.name == "Food") {
+                    if (_idata.bin == itemData.bins.food) { playerStats.changePlayerFood(materialToEarn); pass = true; }
+                }
+                if (collision.transform.name == "Glass") {
+                    if (_idata.bin == itemData.bins.glass) { playerStats.changePlayerGlass(materialToEarn); pass = true; }
+                }
+                if (collision.transform.name == "Metal") {
+                    if (_idata.bin == itemData.bins.metal) { playerStats.changePlayerMetal(materialToEarn); pass = true; }
+                }
+                if (pass == false) { 
+                    float deduction = (_iValue / 2) * -1;
+                    playerStats.changePlayerMoney(deduction); }
+                else { playerStats.changePlayerMoney(_iValue); guim.showFeedback(guim.FEED_itemDroppedOnBin); }
                 Destroy(this.gameObject);
             }
         }

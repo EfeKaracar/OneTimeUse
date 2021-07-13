@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 809041397}
   - component: {fileID: 2725732607432555472}
   m_Layer: 0
-  m_Name: Item
+  m_Name: Glass
   m_TagString: Item
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -136,3 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f848d18757d35fa42bfc541e935b0943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: 
+  itemValue: 0
+  randomizeValue: 1
+  onRail: 0
+  beingDragged: 0
+  bin: 0
