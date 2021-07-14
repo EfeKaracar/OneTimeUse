@@ -5,14 +5,19 @@ using UnityEngine;
 public class spawnManager : MonoBehaviour
 {
     public GameObject[] _prefabItems;
+    public GameObject[] items;
     public List<GameObject> spawnedItems;
     public GameObject LeftSpawn;
     public GameObject RightSpawn;
     public GameObject rail;
     private void Start() {
+        loadResources();
         InvokeRepeating("spawnItem", 1, 2);
     }
-
+    void loadResources() {
+        items = Resources.LoadAll<GameObject>("Items");
+        _prefabItems = items;
+    }
     private void Update() {
         if (spawnedItems.Count <= 0) return;
         foreach(GameObject S in spawnedItems) {
@@ -27,7 +32,6 @@ public class spawnManager : MonoBehaviour
             }
         }
     }
-
     public void spawnItem() {
         int randomIndex = UnityEngine.Random.Range(0, _prefabItems.Length);
         GameObject O = Instantiate(_prefabItems[randomIndex], LeftSpawn.transform.position, Quaternion.identity);

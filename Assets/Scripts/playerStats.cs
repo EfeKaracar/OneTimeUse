@@ -11,6 +11,8 @@ public static class playerStats {
     public static float curFood;
     public static float curGlass;
 
+    public static float curShift = 1;
+
 
     public static float changePlayerMoney(float value) {
         money = Mathf.Clamp(money, 0, Mathf.Infinity);

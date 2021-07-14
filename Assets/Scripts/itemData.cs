@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(itemBehaviours))]
+[RequireComponent(typeof(MeshRenderer))]
 public class itemData : MonoBehaviour
 {
     public string itemName;
-    [Range(10, 100)]
+    [Range(1, 100)]
     public int itemValue;
     public bool randomizeValue;
     [HideInInspector]
@@ -17,7 +21,7 @@ public class itemData : MonoBehaviour
 
     private void Start() {
         if (randomizeValue)
-            itemValue = UnityEngine.Random.Range(10, 100);   
+            itemValue = UnityEngine.Random.Range(10, 20);   
     }
 
 }

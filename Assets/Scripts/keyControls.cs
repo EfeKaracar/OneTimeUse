@@ -5,9 +5,11 @@ using UnityEngine;
 public class keyControls : MonoBehaviour
 {
     timeManager tm;
+    GUIManager guim;
     // Start is called before the first frame update
     void Start()
     {
+        guim = GetComponent<GUIManager>();
         tm = GetComponent<timeManager>();
     }
 
@@ -16,6 +18,9 @@ public class keyControls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)) {
             tm.pauseGame(); 
+        }
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            guim.openPauseMenu();
         }
     }
 }
