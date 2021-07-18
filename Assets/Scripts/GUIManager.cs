@@ -7,6 +7,7 @@ public class GUIManager : MonoBehaviour
     [Header("HUD")]
     public TextMeshProUGUI HUD_text_money;
     public TextMeshProUGUI[] HUD_text_resources;
+    public GameObject[] HUD_Image_resources;
     public TextMeshProUGUI HUD_shift;
     [Header("GUI")]
     public GameObject GUI_Report;
