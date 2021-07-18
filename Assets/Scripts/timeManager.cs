@@ -15,14 +15,22 @@ public class timeManager : MonoBehaviour
     public float timeSpentPlaying;
     gameManager gm;
     [Header("Debug Tools")]
+    public bool enableDebug = false;
     public bool disableShifts;
+    [Range(1, 10)]
+    public float timeScale = 1;
 
     // Update is called once per frame
     void Start() {
         gm = GetComponent<gameManager>();
         InvokeRepeating("runTime", 0, 1);
     }
-
+    private void Update() {
+        //if (enableDebug) { Time.timeScale = timeScale; }
+    }
+    /// <summary>
+    /// This script runs timers for different purposes. It also checks if player's timer ran out.
+    /// </summary>
     public void runTime() {
         gameTime++;
         timeSpentPlaying++;
@@ -38,7 +46,9 @@ public class timeManager : MonoBehaviour
             gm.endShift();
         }
     }
-
+    /// <summary>
+    /// This script pauses/unpauses the game.
+    /// </summary>
     public void pauseGame() { 
         if(Time.timeScale == 1) {
             Time.timeScale = 0;
