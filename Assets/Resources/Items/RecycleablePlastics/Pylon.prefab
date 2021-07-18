@@ -135,6 +135,7 @@ MonoBehaviour:
   itemValue: 3.75
   randomizeValue: 0
   onRail: 0
+  targetConveyor: {fileID: 0}
   beingDragged: 0
   bin: 1
 --- !u!1 &1739067114883341742

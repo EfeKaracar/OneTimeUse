@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: -4421058470248242948}
   - component: {fileID: 8115662149303210920}
   m_Layer: 0
-  m_Name: MetalCog
+  m_Name: Metal Cog
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,5 +211,6 @@ MonoBehaviour:
   itemValue: 2.5
   randomizeValue: 0
   onRail: 0
+  targetConveyor: {fileID: 0}
   beingDragged: 0
   bin: 2

@@ -5,8 +5,10 @@ using UnityEngine;
 public class conveyorEnd : MonoBehaviour
 {
     GUIManager guim;
+    gameManager gm;
     private void Start() {
         guim = GameObject.FindGameObjectWithTag("GM").GetComponent<GUIManager>();
+        gm = guim.GetComponent<gameManager>();
     }
     /// <summary>
     /// This collision check makes sure items player didn't pick from the conveyor is missed and their values deducted from player's money.
@@ -19,6 +21,7 @@ public class conveyorEnd : MonoBehaviour
             playerStats.changePlayerMoney(value);
             Destroy(collision.transform.gameObject);
             guim.showMissedFeedback();
+            gm.playClip(gm.missedItem, transform.position);
         }
     }
 

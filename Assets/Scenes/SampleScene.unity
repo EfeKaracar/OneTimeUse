@@ -3379,6 +3379,9 @@ MonoBehaviour:
   cinematicSpawn: {fileID: 1006256022}
   cinematicCam: {fileID: 91851459}
   cinematicOverlay: {fileID: 138320883}
+  correctMatch: {fileID: 8300000, guid: 36ac43560c608174f95f736fdc617568, type: 3}
+  missedItem: {fileID: 8300000, guid: e2d5a42fdc9864f47bb67b81b8c42b3e, type: 3}
+  wrongMatch: {fileID: 8300000, guid: a8e41a1052ad69c4587e390ec139fe88, type: 3}
 --- !u!1 &507182564
 GameObject:
   m_ObjectHideFlags: 0
@@ -15627,7 +15630,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3b087a8a9112aca409c76d6211bc902a, type: 2}
+  - {fileID: 2100000, guid: f0ed2ef5c22bac849892d4c5a0b83330, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -207,9 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f848d18757d35fa42bfc541e935b0943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Stool
   itemValue: 3.75
   randomizeValue: 0
   onRail: 0
+  targetConveyor: {fileID: 0}
   beingDragged: 0
   bin: 1

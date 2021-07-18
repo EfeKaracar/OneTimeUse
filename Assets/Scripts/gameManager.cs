@@ -12,6 +12,12 @@ public class gameManager : MonoBehaviour
     public GameObject cinematicSpawn;
     public GameObject cinematicCam;
     public GameObject cinematicOverlay;
+
+    [Header("Audio")]
+    public AudioClip correctMatch;
+    public AudioClip missedItem;
+    public AudioClip wrongMatch;
+
     private void Start() {
         tm = GetComponent<timeManager>();
         guim = GetComponent<GUIManager>();
@@ -21,6 +27,9 @@ public class gameManager : MonoBehaviour
     public void endShift() {
         tm.pauseGame();
         guim.reportContinue();
+    }
+    public void playClip(AudioClip clip, Vector3 position) {
+        AudioSource.PlayClipAtPoint(clip, position);
     }
     /// <summary>
     /// This script is called from answering the question at the end of every shift report. It resets all the player parameters relevant to a shift
@@ -70,7 +79,7 @@ public class gameManager : MonoBehaviour
     /// </summary>
     public void setup() {
         if(playerStats.curShift == 1) {
-            gameBalancing.shiftDurationInSeconds = 30; // 30
+            gameBalancing.shiftDurationInSeconds = 3; // 30
             gameBalancing.itemMoveSpeed = 2f;
             gameBalancing.allowRecycleForSpawn = true;
             gameBalancing.allowSingleForSpawn = true;
@@ -78,24 +87,24 @@ public class gameManager : MonoBehaviour
             lib.hideBin("Food");
         }
         if(playerStats.curShift == 2) {
-            gameBalancing.shiftDurationInSeconds = 45; // 45
+            gameBalancing.shiftDurationInSeconds = 3; // 45
             gameBalancing.itemMoveSpeed = 2.3f;
             gameBalancing.allowMetalForSpawn = true;
             lib.showBin("Metal");
         }
         if(playerStats.curShift == 3) {
-            gameBalancing.shiftDurationInSeconds = 60; // 60
+            gameBalancing.shiftDurationInSeconds = 3; // 60
             gameBalancing.activateSecondRail = true;
             lib.secondRail.SetActive(true);
         }
         if(playerStats.curShift == 4) {
-            gameBalancing.shiftDurationInSeconds = 90; // 90
+            gameBalancing.shiftDurationInSeconds = 3; // 90
             gameBalancing.itemMoveSpeed = 2.6f;
             gameBalancing.allowFoodForSpawn = true;
             lib.showBin("Food");
         }
         if (playerStats.curShift == 5) {
-            gameBalancing.shiftDurationInSeconds = 120; // 120
+            gameBalancing.shiftDurationInSeconds = 3; // 120
             gameBalancing.itemMoveSpeed = 3f;
         }
     }

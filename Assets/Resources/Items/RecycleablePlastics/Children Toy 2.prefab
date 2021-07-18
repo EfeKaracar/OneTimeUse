@@ -292,6 +292,7 @@ MonoBehaviour:
   itemValue: 4
   randomizeValue: 0
   onRail: 0
+  targetConveyor: {fileID: 0}
   beingDragged: 0
   bin: 1
 --- !u!1 &7584767676242948487

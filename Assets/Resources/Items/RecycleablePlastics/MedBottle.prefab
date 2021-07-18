@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4709821725312584503}
   m_Layer: 0
   m_Name: MedBottle
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  itemValue: 0
+  itemValue: 0.5
   randomizeValue: 0
   onRail: 0
   targetConveyor: {fileID: 0}
   beingDragged: 0
-  bin: 0
+  bin: 1

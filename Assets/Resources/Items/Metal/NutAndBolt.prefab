@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6505232417544733865}
   m_Layer: 0
   m_Name: NutAndBolt
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,12 +138,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  itemValue: 0
+  itemValue: 2
   randomizeValue: 0
   onRail: 0
   targetConveyor: {fileID: 0}
   beingDragged: 0
-  bin: 0
+  bin: 2
 --- !u!1 &9044386675731473454
 GameObject:
   m_ObjectHideFlags: 0

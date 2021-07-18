@@ -7,8 +7,9 @@ public class itemBehaviours : MonoBehaviour
     float cameraZdistance;
     itemData _idata;
     GUIManager guim;
-
+    gameManager gm;
     private void Start() {
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<gameManager>();
         guim = FindObjectOfType<GUIManager>();
         _idata = GetComponent<itemData>();
         cameraZdistance = Camera.main.WorldToScreenPoint(transform.position).z; // z axis of the game object
@@ -43,11 +44,13 @@ public class itemBehaviours : MonoBehaviour
                     if (_idata.bin == itemData.bins.metal) { playerStats.changePlayerMetal(); pass = true; singleUseThrown = false;/*Debug.Log(1);*/ }
                 }
                 // Pass check
-                if (pass == false) { 
+                if (pass == false) {
+                    gm.playClip(gm.wrongMatch, transform.position);
                     float deduction = _iValue * -1;
                     playerStats.changePlayerMoney(deduction);
                     //Debug.Log(2); 
                 } else {
+                    gm.playClip(gm.correctMatch, transform.position);
                     if (!singleUseThrown) { 
                         playerStats.changePlayerMoney(_iValue); 
                         guim.showFeedback();

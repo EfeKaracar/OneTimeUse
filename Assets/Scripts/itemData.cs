@@ -8,7 +8,6 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class itemData : MonoBehaviour
 {
-    public string itemName;
     [Range(0, 100)]
     public float itemValue;
     public bool randomizeValue;
