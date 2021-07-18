@@ -63,8 +63,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.167147, y: 0.54141676, z: 0.71426344}
-  m_Center: {x: 0.08357352, y: 0.22929162, z: 0.23179984}
+  m_Size: {x: 1.0988114, y: 0.54141676, z: 0.71426344}
+  m_Center: {x: 0.20258999, y: 0.22929162, z: 0.23179984}
 --- !u!114 &6237709788983631535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   itemValue: 3
   randomizeValue: 0
   onRail: 0
+  targetConveyor: {fileID: 0}
   beingDragged: 0
   bin: 3
 --- !u!1 &2217889947732023370
