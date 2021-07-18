@@ -8,10 +8,16 @@ public class spawnManager : MonoBehaviour
     public List<GameObject> _prefabItems;
     public GameObject[] items;
     public List<GameObject> spawnedItems;
+    public GameObject spawnGarbage;
     public List<GameObject> singlePlastics;
+    [Header("First Rail")]
     public GameObject LeftSpawn;
     public GameObject RightSpawn;
     public GameObject rail;
+    [Header("Second Rail")]
+    public GameObject _leftSpawn;
+    public GameObject _rightSpawn;
+    public GameObject _rail;
     private void Start() {
         
         InvokeRepeating("spawnItem", 1, 2);
@@ -29,12 +35,24 @@ public class spawnManager : MonoBehaviour
     private void Update() {
         if (spawnedItems.Count <= 0) return;
         foreach(GameObject S in spawnedItems) {
-            if (S != null) { 
-                float YDistance = (rail.transform.position.y - S.transform.position.y) * -1;
-                if (YDistance <= 1.5) {
-                    //Debug.Log(YDistance);
-                    if(S.GetComponent<itemData>().onRail == true) { 
-                        S.transform.position = Vector3.MoveTowards(S.transform.position, RightSpawn.transform.position, Time.deltaTime * gameBalancing.itemMoveSpeed);
+            if (S != null) {
+                GameObject _target = S.GetComponent<itemData>().targetConveyor;
+                if(_target == rail) { 
+                    float YDistance = (rail.transform.position.y - S.transform.position.y) * -1;
+                    if (YDistance <= 1.5) {
+                        //Debug.Log(YDistance);
+                        if(S.GetComponent<itemData>().onRail == true) { 
+                            S.transform.position = Vector3.MoveTowards(S.transform.position, RightSpawn.transform.position, Time.deltaTime * gameBalancing.itemMoveSpeed);
+                        }
+                    }
+                }
+                else if(_target == _rail) {
+                    float YDistance = (_rail.transform.position.y - S.transform.position.y) * -1;
+                    if (YDistance <= 1.5) {
+                        //Debug.Log(YDistance);
+                        if (S.GetComponent<itemData>().onRail == true) {
+                            S.transform.position = Vector3.MoveTowards(S.transform.position, _rightSpawn.transform.position, Time.deltaTime * gameBalancing.itemMoveSpeed);
+                        }
                     }
                 }
             }
@@ -44,7 +62,18 @@ public class spawnManager : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, _prefabItems.Count);
         GameObject O = Instantiate(_prefabItems[randomIndex], LeftSpawn.transform.position, Quaternion.identity);
         spawnedItems.Add(O);
+        if(O.GetComponent<itemData>().bin == itemData.bins.single) {
+            GameObject C = Instantiate(_prefabItems[randomIndex], spawnGarbage.transform.position, Quaternion.identity);
+            singlePlastics.Add(C); }
 
-        if(O.GetComponent<itemData>().bin == itemData.bins.single) { singlePlastics.Add(O); }
+        if (gameBalancing.activateSecondRail) {
+            int _randomIndex = UnityEngine.Random.Range(0, _prefabItems.Count);
+            GameObject D = Instantiate(_prefabItems[_randomIndex], _leftSpawn.transform.position, Quaternion.identity);
+            spawnedItems.Add(D);
+            if (D.GetComponent<itemData>().bin == itemData.bins.single) {
+                GameObject C = Instantiate(_prefabItems[randomIndex], spawnGarbage.transform.position, Quaternion.identity);
+                singlePlastics.Add(C);
+            }
+        }
     }
 }

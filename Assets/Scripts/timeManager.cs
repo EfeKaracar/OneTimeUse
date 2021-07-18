@@ -40,6 +40,7 @@ public class timeManager : MonoBehaviour
             tempMinutes++;
             minutesText.text = tempMinutes.ToString();
             tempSeconds = 0;
+            secondsText.text = tempSeconds.ToString();
         }
         if(gameTime == gameBalancing.shiftDurationInSeconds) {
             if(!disableShifts)

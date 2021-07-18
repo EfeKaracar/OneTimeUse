@@ -11,6 +11,7 @@ public class gameManager : MonoBehaviour
     [Header("Cinematic")]
     public GameObject cinematicSpawn;
     public GameObject cinematicCam;
+    public GameObject cinematicOverlay;
     private void Start() {
         tm = GetComponent<timeManager>();
         guim = GetComponent<GUIManager>();
@@ -32,7 +33,9 @@ public class gameManager : MonoBehaviour
 
             tm.tempSeconds = 0;
             tm.tempMinutes = 0;
+            tm.minutesText.text = 0.ToString();
             tm.gameTime = 0;
+
             playerStats.curShift++;
             playerStats.curMoney = 0;
             playerStats.curMetal = 0;
@@ -41,11 +44,17 @@ public class gameManager : MonoBehaviour
             playerStats.curFood = 0;
             setup();
             sm.loadResources();
+
+            foreach(GameObject S in sm.spawnedItems) {
+                if(S != null) { 
+                Destroy(S);
+                }
+            }
+            sm.spawnedItems.Clear();
         }
         else {
             showEndCinematic();
         }
-
     }
     /// <summary>
     /// This script hides the shift notification on new day after a second.
@@ -61,7 +70,7 @@ public class gameManager : MonoBehaviour
     /// </summary>
     public void setup() {
         if(playerStats.curShift == 1) {
-            gameBalancing.shiftDurationInSeconds = 30;
+            gameBalancing.shiftDurationInSeconds = 3; // 30
             gameBalancing.itemMoveSpeed = 2f;
             gameBalancing.allowRecycleForSpawn = true;
             gameBalancing.allowSingleForSpawn = true;
@@ -69,37 +78,46 @@ public class gameManager : MonoBehaviour
             lib.hideBin("Food");
         }
         if(playerStats.curShift == 2) {
-            gameBalancing.shiftDurationInSeconds = 45;
+            gameBalancing.shiftDurationInSeconds = 3; // 45
             gameBalancing.itemMoveSpeed = 2.3f;
             gameBalancing.allowMetalForSpawn = true;
             lib.showBin("Metal");
         }
         if(playerStats.curShift == 3) {
-            gameBalancing.shiftDurationInSeconds = 60;
+            gameBalancing.shiftDurationInSeconds = 3; // 60
             gameBalancing.activateSecondRail = true;
             lib.secondRail.SetActive(true);
         }
         if(playerStats.curShift == 4) {
-            gameBalancing.shiftDurationInSeconds = 90;
+            gameBalancing.shiftDurationInSeconds = 3; // 90
             gameBalancing.itemMoveSpeed = 2.6f;
             gameBalancing.allowFoodForSpawn = true;
             lib.showBin("Food");
         }
         if (playerStats.curShift == 5) {
-            gameBalancing.shiftDurationInSeconds = 120;
+            gameBalancing.shiftDurationInSeconds = 3; // 120
             gameBalancing.itemMoveSpeed = 3f;
         }
     }
-
     public void contributeMoney() {
         playerStats.contributedMoney += playerStats.curMoney;
     }
-
     public void showEndCinematic() {
-        Camera.main.gameObject.SetActive(false);
+        Time.timeScale = 1;
+        guim.HUD.SetActive(false);
         cinematicCam.SetActive(true);
+        Camera.main.gameObject.SetActive(false);
         foreach(GameObject S in sm.singlePlastics) {
-            Instantiate(S, cinematicSpawn.transform.position, Quaternion.identity);
+            S.transform.position = cinematicSpawn.transform.position;
+            for(int i = 0; i < 45; i++) { Instantiate(S, cinematicSpawn.transform.position, Quaternion.identity); }
         }
+        StartCoroutine("showOverlay");
+    }
+    IEnumerator showOverlay() { 
+        yield return new WaitForSeconds(3);
+        cinematicOverlay.SetActive(true);
+    }
+    public void muteGame() { 
+        if(AudioListener.volume == 0) { AudioListener.volume = 1; } else { AudioListener.volume = 0; }
     }
 }

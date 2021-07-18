@@ -14,6 +14,7 @@ public class itemData : MonoBehaviour
     public bool randomizeValue;
     [HideInInspector]
     public bool onRail;
+    public GameObject targetConveyor;
     [HideInInspector]
     public bool beingDragged = false;
     public enum bins { single, recycle, metal, food}
