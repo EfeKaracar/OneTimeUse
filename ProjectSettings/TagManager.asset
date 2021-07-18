@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bin
   - Item
+  - GM
   layers:
   - Default
   - TransparentFX

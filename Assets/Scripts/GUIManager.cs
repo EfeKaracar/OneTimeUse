@@ -11,7 +11,8 @@ public class GUIManager : MonoBehaviour
     [Header("GUI")]
     public GameObject GUI_Report;
     public GameObject GUI_Upgrade;
-    public GameObject GUI_Pause;
+    public GameObject GUI_Pause;    
+    public GameObject GUI_memo;
     [Header("Notifications")]
     public GameObject NOTE_shift;
     [Header("Feedbacks")]
@@ -58,6 +59,9 @@ public class GUIManager : MonoBehaviour
         HUD_text_resources[2].text = playerStats.curMetal.ToString();
         HUD_text_resources[3].text = playerStats.curFood.ToString();
         HUD_shift.text = playerStats.curShift.ToString();
+    }
+    void syncReport() {
+        GUI_Report.transform.Find("Money").transform.Find("_floatMoney").GetComponent<TextMeshProUGUI>().text = playerStats.money.ToString();
     }
     public void reportContinue() {
         NOTE_shift.SetActive(true);

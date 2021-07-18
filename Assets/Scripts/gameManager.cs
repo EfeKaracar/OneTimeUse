@@ -30,9 +30,17 @@ public class gameManager : MonoBehaviour
     }
 
     public void setup() {
-        if(playerStats.curShift == 2) { }
-        if(playerStats.curShift == 3) { }
-        if(playerStats.curShift == 4) { }
-        if(playerStats.curShift == 5) { }
+        if(playerStats.curShift == 2) {
+            gameBalancing.shiftDurationInSeconds = 45;
+        }
+        if(playerStats.curShift == 3) {
+            gameBalancing.shiftDurationInSeconds = 60;
+        }
+        if(playerStats.curShift == 4) {
+            gameBalancing.shiftDurationInSeconds = 90;
+        }
+        if (playerStats.curShift == 5) {
+            gameBalancing.shiftDurationInSeconds = 120;
+        }
     }
 }
