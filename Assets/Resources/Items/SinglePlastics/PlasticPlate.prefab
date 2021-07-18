@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  itemValue: 0
+  itemValue: 0.5
   randomizeValue: 0
   onRail: 0
   beingDragged: 0

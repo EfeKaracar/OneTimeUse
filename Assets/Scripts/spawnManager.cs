@@ -24,7 +24,7 @@ public class spawnManager : MonoBehaviour
             if (S != null) { 
                 float YDistance = (rail.transform.position.y - S.transform.position.y) * -1;
                 if (YDistance <= 1.5) {
-                    Debug.Log(YDistance);
+                    //Debug.Log(YDistance);
                     if(S.GetComponent<itemData>().onRail == true) { 
                         S.transform.position = Vector3.MoveTowards(S.transform.position, RightSpawn.transform.position, Time.deltaTime * gameBalancing.itemMoveSpeed);
                     }

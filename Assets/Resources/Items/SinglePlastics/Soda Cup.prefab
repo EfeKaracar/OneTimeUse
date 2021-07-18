@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: 
-  itemValue: 0
+  itemValue: 0.75
   randomizeValue: 0
   onRail: 0
   beingDragged: 0

@@ -24,26 +24,33 @@ public class itemBehaviours : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
+        //Debug.Log(collision.transform.name);
         if(collision.transform.tag == "Bin") {
             if (GetComponent<itemData>().beingDragged == false) {
                 float _iValue = GetComponent<itemData>().itemValue;
                 bool pass = false;
                 if (collision.transform.name == "RecyclePlastics") {
-                    if (_idata.bin == itemData.bins.recycle) { playerStats.changePlayerPlasticsRecycle(); pass = true; }
+                    if (_idata.bin == itemData.bins.recycle) { playerStats.changePlayerPlasticsRecycle(); pass = true; /*Debug.Log(1);*/ }
                 }
                 if (collision.transform.name == "SinglePlastics") {
-                    if (_idata.bin == itemData.bins.single) { playerStats.changePlayerPlasticsSingle(); pass = true; }
+                    if (_idata.bin == itemData.bins.single) { playerStats.changePlayerPlasticsSingle(); pass = true; /*Debug.Log(1);*/ }
                 }
                 if (collision.transform.name == "Food") {
-                    if (_idata.bin == itemData.bins.food) { playerStats.changePlayerFood(); pass = true; }
+                    if (_idata.bin == itemData.bins.food) { playerStats.changePlayerFood(); pass = true; /*Debug.Log(1);*/ }
                 }
                 if (collision.transform.name == "Metal") {
-                    if (_idata.bin == itemData.bins.metal) { playerStats.changePlayerMetal(); pass = true; }
+                    if (_idata.bin == itemData.bins.metal) { playerStats.changePlayerMetal(); pass = true; /*Debug.Log(1);*/ }
                 }
+                // Pass check
                 if (pass == false) { 
                     float deduction = _iValue * -1;
-                    playerStats.changePlayerMoney(deduction); }
-                else { playerStats.changePlayerMoney(_iValue); guim.showFeedback(guim.FEED_itemDroppedOnBin); }
+                    playerStats.changePlayerMoney(deduction);
+                    //Debug.Log(2);
+                } else { 
+                    playerStats.changePlayerMoney(_iValue); 
+                    guim.showFeedback(); 
+                }
+                guim.showMoneyFeedback(pass, _iValue);
                 Destroy(this.gameObject);
             }
         }

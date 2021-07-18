@@ -22,9 +22,17 @@ public class gameManager : MonoBehaviour
         tm.tempMinutes = 0;
         tm.gameTime = 0;
         playerStats.curShift++;
+        setup();
     }
     IEnumerator hideShiftNote() {
         yield return new WaitForSeconds(1);
         guim.NOTE_shift.transform.Find("NewShift").gameObject.SetActive(false);
+    }
+
+    public void setup() {
+        if(playerStats.curShift == 2) { }
+        if(playerStats.curShift == 3) { }
+        if(playerStats.curShift == 4) { }
+        if(playerStats.curShift == 5) { }
     }
 }

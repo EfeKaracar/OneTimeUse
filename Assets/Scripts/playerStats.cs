@@ -12,8 +12,8 @@ public static class playerStats {
 
     public static float curShift = 1;
 
-    public static float changePlayerMoney(float value) {
-        if(value < 0) { return money =- value; } else return money += value; 
+    public static void changePlayerMoney(float value) {
+        money += value;
     }
     public static float changePlayerMetal() {
         return curMetal++;
