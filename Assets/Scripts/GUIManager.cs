@@ -47,11 +47,11 @@ public class GUIManager : MonoBehaviour
     }
     public void showMemo() {
         GUI_memo.SetActive(true);
-        if(playerStats.curShift == 1) { GUI_memo.transform.Find("Memo_Day1").gameObject.SetActive(true); }
-        if(playerStats.curShift == 2) { GUI_memo.transform.Find("Memo_Day2").gameObject.SetActive(true); }
-        if(playerStats.curShift == 3) { GUI_memo.transform.Find("Memo_Day3").gameObject.SetActive(true); }
-        if(playerStats.curShift == 4) { GUI_memo.transform.Find("Memo_Day4").gameObject.SetActive(true); }
-        if(playerStats.curShift == 5) { GUI_memo.transform.Find("Memo_Day5").gameObject.SetActive(true); }
+        if(playerStats.curShift == 1) { GUI_memo.transform.Find("Memo_Day2").gameObject.SetActive(true); }
+        if(playerStats.curShift == 2) { GUI_memo.transform.Find("Memo_Day3").gameObject.SetActive(true); }
+        if(playerStats.curShift == 3) { GUI_memo.transform.Find("Memo_Day4").gameObject.SetActive(true); }
+        if(playerStats.curShift == 4) { GUI_memo.transform.Find("Memo_Day5").gameObject.SetActive(true); }
+        //if(playerStats.curShift == 5) { GUI_memo.transform.Find("Memo_Day5").gameObject.SetActive(true); }
     }
     /// <summary>
     /// This script shows a text on mouse position notifying player put a correct item on a bin. Used for notifying player.
