@@ -8,6 +8,7 @@ public class spawnManager : MonoBehaviour
     public List<GameObject> _prefabItems;
     public GameObject[] items;
     public List<GameObject> spawnedItems;
+    public List<GameObject> singlePlastics;
     public GameObject LeftSpawn;
     public GameObject RightSpawn;
     public GameObject rail;
@@ -43,5 +44,7 @@ public class spawnManager : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, _prefabItems.Count);
         GameObject O = Instantiate(_prefabItems[randomIndex], LeftSpawn.transform.position, Quaternion.identity);
         spawnedItems.Add(O);
+
+        if(O.GetComponent<itemData>().bin == itemData.bins.single) { singlePlastics.Add(O); }
     }
 }

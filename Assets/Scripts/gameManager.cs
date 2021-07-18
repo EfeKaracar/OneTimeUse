@@ -8,6 +8,9 @@ public class gameManager : MonoBehaviour
     timeManager tm;
     entityLib lib;
     spawnManager sm;
+    [Header("Cinematic")]
+    public GameObject cinematicSpawn;
+    public GameObject cinematicCam;
     private void Start() {
         tm = GetComponent<timeManager>();
         guim = GetComponent<GUIManager>();
@@ -23,20 +26,25 @@ public class gameManager : MonoBehaviour
     /// and makes sure player starts on a new day.
     /// </summary>
     public void startShift() {
-        StartCoroutine("hideShiftNote");
-        tm.pauseGame();
+        if(playerStats.curShift < 5) { 
+            StartCoroutine("hideShiftNote");
+            tm.pauseGame();
 
-        tm.tempSeconds = 0;
-        tm.tempMinutes = 0;
-        tm.gameTime = 0;
-        playerStats.curShift++;
-        playerStats.curMoney = 0;
-        playerStats.curMetal = 0;
-        playerStats.curPlasticsRecycle = 0;
-        playerStats.curPlasticsSingle = 0;
-        playerStats.curFood = 0;
-        setup();
-        sm.loadResources();
+            tm.tempSeconds = 0;
+            tm.tempMinutes = 0;
+            tm.gameTime = 0;
+            playerStats.curShift++;
+            playerStats.curMoney = 0;
+            playerStats.curMetal = 0;
+            playerStats.curPlasticsRecycle = 0;
+            playerStats.curPlasticsSingle = 0;
+            playerStats.curFood = 0;
+            setup();
+            sm.loadResources();
+        }
+        else {
+            showEndCinematic();
+        }
 
     }
     /// <summary>
@@ -85,5 +93,13 @@ public class gameManager : MonoBehaviour
 
     public void contributeMoney() {
         playerStats.contributedMoney += playerStats.curMoney;
+    }
+
+    public void showEndCinematic() {
+        Camera.main.gameObject.SetActive(false);
+        cinematicCam.SetActive(true);
+        foreach(GameObject S in sm.singlePlastics) {
+            Instantiate(S, cinematicSpawn.transform.position, Quaternion.identity);
+        }
     }
 }
