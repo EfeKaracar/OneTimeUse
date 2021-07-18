@@ -27,7 +27,7 @@ public class gameManager : MonoBehaviour
     /// and makes sure player starts on a new day.
     /// </summary>
     public void startShift() {
-        if(playerStats.curShift < 5) { 
+        if(playerStats.curShift < 6) { 
             StartCoroutine("hideShiftNote");
             tm.pauseGame();
 
@@ -70,7 +70,7 @@ public class gameManager : MonoBehaviour
     /// </summary>
     public void setup() {
         if(playerStats.curShift == 1) {
-            gameBalancing.shiftDurationInSeconds = 3; // 30
+            gameBalancing.shiftDurationInSeconds = 30; // 30
             gameBalancing.itemMoveSpeed = 2f;
             gameBalancing.allowRecycleForSpawn = true;
             gameBalancing.allowSingleForSpawn = true;
@@ -78,24 +78,24 @@ public class gameManager : MonoBehaviour
             lib.hideBin("Food");
         }
         if(playerStats.curShift == 2) {
-            gameBalancing.shiftDurationInSeconds = 3; // 45
+            gameBalancing.shiftDurationInSeconds = 45; // 45
             gameBalancing.itemMoveSpeed = 2.3f;
             gameBalancing.allowMetalForSpawn = true;
             lib.showBin("Metal");
         }
         if(playerStats.curShift == 3) {
-            gameBalancing.shiftDurationInSeconds = 3; // 60
+            gameBalancing.shiftDurationInSeconds = 60; // 60
             gameBalancing.activateSecondRail = true;
             lib.secondRail.SetActive(true);
         }
         if(playerStats.curShift == 4) {
-            gameBalancing.shiftDurationInSeconds = 3; // 90
+            gameBalancing.shiftDurationInSeconds = 90; // 90
             gameBalancing.itemMoveSpeed = 2.6f;
             gameBalancing.allowFoodForSpawn = true;
             lib.showBin("Food");
         }
         if (playerStats.curShift == 5) {
-            gameBalancing.shiftDurationInSeconds = 3; // 120
+            gameBalancing.shiftDurationInSeconds = 120; // 120
             gameBalancing.itemMoveSpeed = 3f;
         }
     }
@@ -109,12 +109,12 @@ public class gameManager : MonoBehaviour
         Camera.main.gameObject.SetActive(false);
         foreach(GameObject S in sm.singlePlastics) {
             S.transform.position = cinematicSpawn.transform.position;
-            for(int i = 0; i < 45; i++) { Instantiate(S, cinematicSpawn.transform.position, Quaternion.identity); }
+            for(int i = 0; i < 500; i++) { Instantiate(S, cinematicSpawn.transform.position, Quaternion.identity); }
         }
         StartCoroutine("showOverlay");
     }
     IEnumerator showOverlay() { 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(10);
         cinematicOverlay.SetActive(true);
     }
     public void muteGame() { 
