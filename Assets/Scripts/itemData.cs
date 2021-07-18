@@ -9,14 +9,14 @@ using UnityEngine;
 public class itemData : MonoBehaviour
 {
     public string itemName;
-    [Range(1, 100)]
-    public int itemValue;
+    [Range(0, 100)]
+    public float itemValue;
     public bool randomizeValue;
     [HideInInspector]
     public bool onRail;
     [HideInInspector]
     public bool beingDragged = false;
-    public enum bins { single, recycle, metal, glass, food}
+    public enum bins { single, recycle, metal, food}
     public bins bin;
 
     private void Start() {

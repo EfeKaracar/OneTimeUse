@@ -27,26 +27,21 @@ public class itemBehaviours : MonoBehaviour
         if(collision.transform.tag == "Bin") {
             if (GetComponent<itemData>().beingDragged == false) {
                 float _iValue = GetComponent<itemData>().itemValue;
-                float materialToEarn = _iValue / 10;
-                materialToEarn = Mathf.Clamp(materialToEarn, 0, Mathf.Infinity);
                 bool pass = false;
                 if (collision.transform.name == "RecyclePlastics") {
-                    if (_idata.bin == itemData.bins.recycle) { playerStats.changePlayerPlasticsRecycle(materialToEarn); pass = true; }
+                    if (_idata.bin == itemData.bins.recycle) { playerStats.changePlayerPlasticsRecycle(); pass = true; }
                 }
                 if (collision.transform.name == "SinglePlastics") {
-                    if (_idata.bin == itemData.bins.single) { playerStats.changePlayerPlasticsSingle(materialToEarn); pass = true; }
+                    if (_idata.bin == itemData.bins.single) { playerStats.changePlayerPlasticsSingle(); pass = true; }
                 }
                 if (collision.transform.name == "Food") {
-                    if (_idata.bin == itemData.bins.food) { playerStats.changePlayerFood(materialToEarn); pass = true; }
-                }
-                if (collision.transform.name == "Glass") {
-                    if (_idata.bin == itemData.bins.glass) { playerStats.changePlayerGlass(materialToEarn); pass = true; }
+                    if (_idata.bin == itemData.bins.food) { playerStats.changePlayerFood(); pass = true; }
                 }
                 if (collision.transform.name == "Metal") {
-                    if (_idata.bin == itemData.bins.metal) { playerStats.changePlayerMetal(materialToEarn); pass = true; }
+                    if (_idata.bin == itemData.bins.metal) { playerStats.changePlayerMetal(); pass = true; }
                 }
                 if (pass == false) { 
-                    float deduction = (_iValue / 2) * -1;
+                    float deduction = _iValue * -1;
                     playerStats.changePlayerMoney(deduction); }
                 else { playerStats.changePlayerMoney(_iValue); guim.showFeedback(guim.FEED_itemDroppedOnBin); }
                 Destroy(this.gameObject);
