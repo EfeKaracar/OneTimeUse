@@ -61,6 +61,7 @@ public class GUIManager : MonoBehaviour
     }
     public void reportContinue() {
         NOTE_shift.SetActive(true);
+        NOTE_shift.transform.Find("EndShift").gameObject.SetActive(true);
         NOTE_shift.transform.Find("NewShift").gameObject.SetActive(false);
         tm.pauseGame();
     }
