@@ -24,10 +24,18 @@ public class gameManager : MonoBehaviour
         lib = GetComponent<entityLib>();
         sm = GetComponent<spawnManager>();
     }
+    /// <summary>
+    /// This script is called from every end of a shift.
+    /// </summary>
     public void endShift() {
         tm.pauseGame();
         guim.reportContinue();
     }
+    /// <summary>
+    /// This script plays an audio at a position.
+    /// </summary>
+    /// <param name="clip"></param>
+    /// <param name="position"></param>
     public void playClip(AudioClip clip, Vector3 position) {
         AudioSource.PlayClipAtPoint(clip, position);
     }
@@ -109,11 +117,14 @@ public class gameManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// This script turns money earned to 
+    /// This script turns money earned to contributed money.
     /// </summary>
     public void contributeMoney() {
         playerStats.contributedMoney += playerStats.curMoney;
     }
+    /// <summary>
+    /// This script starts the end cinematic.
+    /// </summary>
     public void showEndCinematic() {
         AudioListener.volume = 0;
         guim.HUD_shift.gameObject.SetActive(false);
@@ -133,6 +144,9 @@ public class gameManager : MonoBehaviour
         yield return new WaitForSeconds(10);
         cinematicOverlay.SetActive(true);
     }
+    /// <summary>
+    /// This script mutes/unmutes the game.
+    /// </summary>
     public void muteGame() { 
         if(AudioListener.volume == 0) { AudioListener.volume = 1; } else { AudioListener.volume = 0; }
     }
