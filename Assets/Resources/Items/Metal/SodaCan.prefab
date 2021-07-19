@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6080258950545398444}
   m_Layer: 0
   m_Name: SodaCan
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f848d18757d35fa42bfc541e935b0943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
   itemValue: 0.75
   randomizeValue: 0
   onRail: 0

@@ -136,8 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f848d18757d35fa42bfc541e935b0943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  itemValue: 0
+  itemValue: 1
   randomizeValue: 0
   onRail: 0
   targetConveyor: {fileID: 0}
