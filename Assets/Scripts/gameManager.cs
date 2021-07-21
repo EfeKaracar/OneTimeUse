@@ -18,6 +18,9 @@ public class gameManager : MonoBehaviour
     public AudioClip missedItem;
     public AudioClip wrongMatch;
 
+    [Header("Debug")]
+    public bool spawnAll = false;
+
     private void Start() {
         tm = GetComponent<timeManager>();
         guim = GetComponent<GUIManager>();
@@ -115,6 +118,15 @@ public class gameManager : MonoBehaviour
             gameBalancing.shiftDurationInSeconds = 120; // 120
             gameBalancing.itemMoveSpeed = 3f;
         }
+
+        // Debug
+        if (tm.shortenTimers) { gameBalancing.shiftDurationInSeconds = 3; }
+        if (spawnAll) { 
+            gameBalancing.allowFoodForSpawn = true;
+            gameBalancing.allowMetalForSpawn = true;
+            gameBalancing.allowRecycleForSpawn = true;
+            gameBalancing.allowSingleForSpawn = true;
+        }
     }
     /// <summary>
     /// This script turns money earned to contributed money.
@@ -150,4 +162,6 @@ public class gameManager : MonoBehaviour
     public void muteGame() { 
         if(AudioListener.volume == 0) { AudioListener.volume = 1; } else { AudioListener.volume = 0; }
     }
+
+
 }

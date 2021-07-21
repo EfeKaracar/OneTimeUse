@@ -29,9 +29,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8944342135396554931}
-  m_LocalRotation: {x: 0.640604, y: -0.18204448, z: 0.17861773, w: 0.72428036}
+  m_LocalRotation: {x: 0.6406021, y: -0.18204774, z: 0.17862102, w: 0.7242804}
   m_LocalPosition: {x: -2.923749, y: 0.827, z: 3.6090307}
-  m_LocalScale: {x: 35.865875, y: 4.687829, z: 1.5229384}
+  m_LocalScale: {x: 45.47785, y: 5.944156, z: 1.9310826}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,8 +110,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.026715213, y: 0.05273765, z: 0.044195745}
-  m_Center: {x: -0.003199864, y: -0.002773393, z: -0.012097838}
+  m_Size: {x: 0.035214722, y: 0.14406478, z: 0.2383564}
+  m_Center: {x: -0.003955285, y: -0.00063311897, z: -0.1091759}
 --- !u!114 &1700958065257296865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f848d18757d35fa42bfc541e935b0943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
   itemValue: 0.25
   randomizeValue: 0
   onRail: 0

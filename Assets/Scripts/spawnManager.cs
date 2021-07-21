@@ -76,4 +76,14 @@ public class spawnManager : MonoBehaviour
             }
         }
     }
+
+    public Vector3 debugSpawn;
+    [ContextMenu("Spawn Items")]
+    public void spawnDebug()
+    {
+        foreach(GameObject P in _prefabItems) {
+            Vector3 _pos = new Vector3(debugSpawn.x + Random.Range(-5, 5), debugSpawn.y, debugSpawn.z + Random.Range(-5, +5));
+            Instantiate(P, _pos, Quaternion.identity);
+        }
+    }
 }

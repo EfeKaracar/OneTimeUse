@@ -16,7 +16,8 @@ public class timeManager : MonoBehaviour
     gameManager gm;
     [Header("Debug Tools")]
     public bool enableDebug = false;
-    public bool disableShifts;
+    public bool disableShifts = false;
+    public bool shortenTimers = false;
     [Range(1, 10)]
     public float timeScale = 1;
 
@@ -24,6 +25,7 @@ public class timeManager : MonoBehaviour
     void Start() {
         gm = GetComponent<gameManager>();
         InvokeRepeating("runTime", 0, 1);
+        
     }
     private void Update() {
         //if (enableDebug) { Time.timeScale = timeScale; }

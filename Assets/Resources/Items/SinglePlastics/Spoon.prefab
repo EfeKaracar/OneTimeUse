@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5171579746022812211}
-  m_LocalRotation: {x: 0.319829, y: 0.66378087, z: -0.58308434, w: 0.34222382}
+  m_LocalRotation: {x: 0.31982747, y: 0.6637826, z: -0.583084, w: 0.34222233}
   m_LocalPosition: {x: -3.806, y: 0.827, z: 3.469}
   m_LocalScale: {x: 35.865875, y: 4.687829, z: 1.5229384}
   m_Children: []
@@ -110,8 +110,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.026433676, y: 0.03620069, z: 0.051549274}
-  m_Center: {x: -0.0030590887, y: 0.000000003733122, z: 0.0013445957}
+  m_Size: {x: 0.05188755, y: 0.16296014, z: 0.37884876}
+  m_Center: {x: -0.00054753496, y: 0.0069079883, z: -0.06397344}
 --- !u!114 &948439604780666100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f848d18757d35fa42bfc541e935b0943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Spoon
   itemValue: 0.25
   randomizeValue: 0
   onRail: 0
