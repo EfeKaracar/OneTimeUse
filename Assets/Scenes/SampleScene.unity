@@ -4037,7 +4037,7 @@ MonoBehaviour:
   timeSpentPlaying: 0
   enableDebug: 0
   disableShifts: 0
-  shortenTimers: 1
+  shortenTimers: 0
 --- !u!114 &475304231
 MonoBehaviour:
   m_ObjectHideFlags: 0
