@@ -61,6 +61,8 @@ public class timeManager : MonoBehaviour
         if(Time.timeScale == 1) {
             Time.timeScale = 0;
             guim.pauseBlock.SetActive(true);
+            guim.pauseBlock.transform.Find("T").gameObject.SetActive(true);
+            guim.pauseBlock.transform.Find("T1").gameObject.SetActive(true);
         } else { 
             Time.timeScale = 1;
             guim.pauseBlock.SetActive(false);

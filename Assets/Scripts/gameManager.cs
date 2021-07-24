@@ -33,6 +33,8 @@ public class gameManager : MonoBehaviour
     public void endShift() {
         tm.pauseGame();
         guim.reportContinue();
+        guim.pauseBlock.transform.Find("T").gameObject.SetActive(false);
+        guim.pauseBlock.transform.Find("T1").gameObject.SetActive(false);
     }
     /// <summary>
     /// This script plays an audio at a position.

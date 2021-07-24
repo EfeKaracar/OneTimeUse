@@ -29,9 +29,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6642408562378483250}
-  m_LocalRotation: {x: 0.60794467, y: -0.5667285, z: 0.41394687, w: -0.3713087}
+  m_LocalRotation: {x: 0.6079448, y: -0.5667297, z: 0.4139428, w: -0.37131104}
   m_LocalPosition: {x: -0.152, y: 0.924, z: 3.636}
-  m_LocalScale: {x: 18.739391, y: 18.739391, z: 6.0328803}
+  m_LocalScale: {x: 30.73635, y: 30.73635, z: 9.89513}
   m_Children:
   - {fileID: 4250403547216090535}
   m_Father: {fileID: 0}
@@ -143,6 +143,7 @@ MonoBehaviour:
   targetConveyor: {fileID: 0}
   beingDragged: 0
   bin: 2
+  rotateX: 0
 --- !u!1 &9044386675731473454
 GameObject:
   m_ObjectHideFlags: 0
