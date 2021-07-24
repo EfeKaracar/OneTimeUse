@@ -23,6 +23,8 @@ public class GUIManager : MonoBehaviour
     public GameObject FEED_itemDroppedOnBin;
     public GameObject FEED_moneyEarned;
     public GameObject FEED_missed;
+
+    public GameObject pauseBlock;
     timeManager tm;
     private void Start() {
         tm = GetComponent<timeManager>();

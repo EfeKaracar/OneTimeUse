@@ -18,10 +18,12 @@ public class itemBehaviours : MonoBehaviour
     /// Called everytime mouse begins dragging an Item from conveyor.
     /// </summary>
     private void OnMouseDrag() {
-        Vector3 screenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraZdistance);
-        Vector3 newWorldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        transform.position = newWorldPosition;
-        GetComponent<itemData>().beingDragged = true;
+        if(Time.timeScale != 0) { 
+            Vector3 screenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraZdistance);
+            Vector3 newWorldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+            transform.position = newWorldPosition;
+            GetComponent<itemData>().beingDragged = true;
+        }
     }
     private void OnMouseUp() {
         GetComponent<itemData>().beingDragged = false;

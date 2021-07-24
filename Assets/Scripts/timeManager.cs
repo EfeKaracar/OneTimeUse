@@ -9,6 +9,7 @@ public class timeManager : MonoBehaviour
 {
     public TextMeshProUGUI secondsText;
     public TextMeshProUGUI minutesText;
+    GUIManager guim;
     // Used to count seconds
     public float tempSeconds;
     // Used to count minutes
@@ -26,6 +27,7 @@ public class timeManager : MonoBehaviour
 
     // Update is called once per frame
     void Start() {
+        guim = GetComponent<GUIManager>();
         gm = GetComponent<gameManager>();
         InvokeRepeating("runTime", 0, 1);
         
@@ -58,8 +60,10 @@ public class timeManager : MonoBehaviour
     public void pauseGame() { 
         if(Time.timeScale == 1) {
             Time.timeScale = 0;
+            guim.pauseBlock.SetActive(true);
         } else { 
             Time.timeScale = 1;
+            guim.pauseBlock.SetActive(false);
         }
     }
 }

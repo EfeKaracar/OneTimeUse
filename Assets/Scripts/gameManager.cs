@@ -159,7 +159,7 @@ public class gameManager : MonoBehaviour
     IEnumerator showOverlay() { 
         yield return new WaitForSeconds(10);
         cinematicOverlay.SetActive(true);
-        Time.timeScale = 1 / 4;
+        //Time.timeScale = 1 / 4;
     }
     /// <summary>
     /// This script mutes/unmutes the game.
