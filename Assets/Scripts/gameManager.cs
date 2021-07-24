@@ -148,13 +148,18 @@ public class gameManager : MonoBehaviour
         Camera.main.gameObject.SetActive(false);
         foreach(GameObject S in sm.singlePlastics) {
             S.transform.position = cinematicSpawn.transform.position;
-            for(int i = 0; i < 30; i++) { Instantiate(S, cinematicSpawn.transform.position, Quaternion.identity); }
+            for(int i = 0; i < 2; i++) { Instantiate(S, cinematicSpawn.transform.position, Quaternion.identity); }
         }
         StartCoroutine("showOverlay");
     }
+    /// <summary>
+    /// Shows the final overlay after cinematic is shown.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator showOverlay() { 
         yield return new WaitForSeconds(10);
         cinematicOverlay.SetActive(true);
+        Time.timeScale = 1 / 4;
     }
     /// <summary>
     /// This script mutes/unmutes the game.

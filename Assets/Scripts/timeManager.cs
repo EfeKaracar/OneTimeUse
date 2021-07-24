@@ -9,17 +9,20 @@ public class timeManager : MonoBehaviour
 {
     public TextMeshProUGUI secondsText;
     public TextMeshProUGUI minutesText;
+    // Used to count seconds
     public float tempSeconds;
+    // Used to count minutes
     public float tempMinutes;
     public float gameTime;
+    // Tracks the entire time player spends in the client.
     public float timeSpentPlaying;
     gameManager gm;
     [Header("Debug Tools")]
     public bool enableDebug = false;
+    // To play forever, no shift checks
     public bool disableShifts = false;
+    // To make each shift 3 second loops. Faster testing.
     public bool shortenTimers = false;
-    [Range(1, 10)]
-    public float timeScale = 1;
 
     // Update is called once per frame
     void Start() {

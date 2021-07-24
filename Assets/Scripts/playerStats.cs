@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This script tracks and stores all player statistics such as currency, resources and current shift. Also stores associated scripts to change these variables easily.
+/// This script tracks and stores all player statistics such as currency, resources and current shift. 
+/// Also stores associated scripts to change these variables easily.
+/// "Overall" version of floats are planned to be used for a stat screen, but not implemented.
 /// </summary>
 public static class playerStats {
 
+    // Money earned from start to end - unused
     public static float overallMoney;
+    // Money has no value in this game, still used to show in GUI
     public static float curMoney;
+    // Unused
     public static float contributedMoney;
 
     public static float overallMetal;

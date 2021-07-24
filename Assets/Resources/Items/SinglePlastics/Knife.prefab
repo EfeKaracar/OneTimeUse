@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3260808947882656035}
-  m_LocalRotation: {x: 0.4960471, y: -0.48295885, z: 0.4429603, w: 0.56962645}
+  m_LocalRotation: {x: 0.5950385, y: -0.31624568, z: 0.29699448, w: 0.6765443}
   m_LocalPosition: {x: -2.373, y: 0.827, z: 3.683}
-  m_LocalScale: {x: 33.528477, y: 5.0551043, z: 1.6422555}
+  m_LocalScale: {x: 38.819267, y: 5.8527994, z: 1.9014034}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -263.21002, y: 110.48499, z: -167.543}
+  m_LocalEulerAnglesHint: {x: -263.21002, y: 140.96399, z: -167.543}
 --- !u!33 &1271338150841111612
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -142,3 +142,4 @@ MonoBehaviour:
   targetConveyor: {fileID: 0}
   beingDragged: 0
   bin: 0
+  rotateX: -300

@@ -14,6 +14,9 @@ public class itemBehaviours : MonoBehaviour
         _idata = GetComponent<itemData>();
         cameraZdistance = Camera.main.WorldToScreenPoint(transform.position).z; // z axis of the game object
     }
+    /// <summary>
+    /// Called everytime mouse begins dragging an Item from conveyor.
+    /// </summary>
     private void OnMouseDrag() {
         Vector3 screenPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, cameraZdistance);
         Vector3 newWorldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
@@ -31,6 +34,8 @@ public class itemBehaviours : MonoBehaviour
                 float _iValue = GetComponent<itemData>().itemValue;
                 bool singleUseThrown = false;
                 bool pass = false;
+                // Match and pass
+                // If the item and bin matches, add by 1 to relevant GUI element
                 if (collision.transform.name == "RecyclePlastics") {
                     if (_idata.bin == itemData.bins.recycle) { playerStats.changePlayerPlasticsRecycle(); pass = true; singleUseThrown = false;/*Debug.Log(1);*/ }
                 }
@@ -44,19 +49,25 @@ public class itemBehaviours : MonoBehaviour
                     if (_idata.bin == itemData.bins.metal) { playerStats.changePlayerMetal(); pass = true; singleUseThrown = false;/*Debug.Log(1);*/ }
                 }
                 // Pass check
+                // If an item is put into wrong bin, then player loses money
                 if (pass == false) {
                     gm.playClip(gm.wrongMatch, transform.position);
                     float deduction = _iValue * -1;
                     playerStats.changePlayerMoney(deduction);
                     //Debug.Log(2); 
+                // If an item is put into correct bin, then player earns money
                 } else {
+                    // Play sound
                     gm.playClip(gm.correctMatch, transform.position);
+                    // Player doesn't earn money from single-use plastic items
                     if (!singleUseThrown) { 
                         playerStats.changePlayerMoney(_iValue); 
                         guim.showFeedback();
                     }
                 }
+                // Show the money earned on top-right, underneath current earnings
                 guim.showMoneyFeedback(pass, _iValue);
+                // Destroy - not enough time for object pooling
                 Destroy(this.gameObject);
             }
         }

@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5171579746022812211}
   m_LocalRotation: {x: 0.31982747, y: 0.6637826, z: -0.583084, w: 0.34222233}
   m_LocalPosition: {x: -3.806, y: 0.827, z: 3.469}
-  m_LocalScale: {x: 35.865875, y: 4.687829, z: 1.5229384}
+  m_LocalScale: {x: 45.94964, y: 6.7745667, z: 1.9511155}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -142,3 +142,4 @@ MonoBehaviour:
   targetConveyor: {fileID: 0}
   beingDragged: 0
   bin: 0
+  rotateX: -300

@@ -46,6 +46,9 @@ public class GUIManager : MonoBehaviour
         FEED_moneyEarned.transform.Find("Number").GetComponent<TextMeshProUGUI>().text = value.ToString();
         StartCoroutine("closeMFeedback");
     }
+    /// <summary>
+    /// Shows the memo at the start of every shift, called from startShift script inside gameManager.
+    /// </summary>
     public void showMemo() {
         GUI_memo.SetActive(true);
         if(playerStats.curShift == 1) { GUI_memo.transform.Find("Memo_Day2").gameObject.SetActive(true); }
@@ -70,14 +73,26 @@ public class GUIManager : MonoBehaviour
         StartCoroutine("closeMissedFeedback");
     }
 
+    /// <summary>
+    /// Hides "Good!" text when an object is dropped on the right bin.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator closeFeedback() {
         yield return new WaitForSeconds(3);
         FEED_itemDroppedOnBin.SetActive(false);
     }   
+    /// <summary>
+    /// Hides the missed text.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator closeMissedFeedback() {
         yield return new WaitForSeconds(3);
         FEED_missed.SetActive(false);
     }
+    /// <summary>
+    /// Hides amount of money earned underneath the current earnings in the HUD everytime an item is dropped into a bin.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator closeMFeedback() {
         yield return new WaitForSeconds(3);
         FEED_moneyEarned.SetActive(false);
@@ -108,6 +123,11 @@ public class GUIManager : MonoBehaviour
         if (playerStats.curShift == 5) { GUI_Report.transform.Find("ReportText").GetComponent<TextMeshProUGUI>().text = "Well, I guess that’s it. You’ve made it through the week. Today’s the last day we’ll be accepting donations for the community park. Last I heard, they want to install public drinking fountains if we have enough resources. Would you like to contribute?"; }
         if (playerStats.curShift == 5) { GUI_Report.transform.Find("ReportText").GetComponent<TextMeshProUGUI>().text = "Turns out there were not enough recyclable items sent to our facility this week, and the plans for the park will unfortunately need to be scrapped for the time being. But all is not lost! Instead of putting all our funding towards the park, we will instead be using it to run a campaign all over town to help incentivise people to recycle as much as they can, and not to purchase or use single-use plastics. This goes beyond our little town, but everything we can do will help the environment. Thanks for playing, and remember to Reduce, Reuse, and Recycle wherever and whenever possible."; }
     }
+    /// <summary>
+    /// This script is called in-betwee shifts, governs the GUI-related stuff. 
+    /// If it is not the end of a shift, then hides the text relevant to it and shows the new shift text -
+    /// since same GUI element is used for same shift text.
+    /// </summary>
     public void reportContinue() {
         syncReport();
         NOTE_shift.SetActive(true);
