@@ -948,8 +948,8 @@ RectTransform:
   - {fileID: 346529388}
   - {fileID: 1578283259}
   - {fileID: 1822076700}
-  - {fileID: 2137008780}
   - {fileID: 904013233}
+  - {fileID: 2137008780}
   - {fileID: 963459778}
   - {fileID: 276282457}
   - {fileID: 1321584826}
@@ -4037,7 +4037,7 @@ MonoBehaviour:
   timeSpentPlaying: 0
   enableDebug: 0
   disableShifts: 0
-  shortenTimers: 0
+  shortenTimers: 1
 --- !u!114 &475304231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9020,7 +9020,7 @@ RectTransform:
   m_LocalScale: {x: 1.8754, y: 1.8754, z: 1.8754}
   m_Children: []
   m_Father: {fileID: 138320884}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9046,7 +9046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: UI/UX, Programming, Game Design
+  m_text: UI/UX, Programming, Game Design, Cinematography, Lighting
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 444ba788de912ed44afe930ace34da0b, type: 2}
   m_sharedMaterial: {fileID: 439489588165985207, guid: 444ba788de912ed44afe930ace34da0b,
@@ -9861,7 +9861,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Design, 3D, 2D, Writing
+  m_text: 'Game Design, 3D, 2D, Writing, Audio, UI, Lighting '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 444ba788de912ed44afe930ace34da0b, type: 2}
   m_sharedMaterial: {fileID: 439489588165985207, guid: 444ba788de912ed44afe930ace34da0b,
@@ -20526,7 +20526,7 @@ RectTransform:
   m_LocalScale: {x: 1.8754, y: 1.8754, z: 1.8754}
   m_Children: []
   m_Father: {fileID: 138320884}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
